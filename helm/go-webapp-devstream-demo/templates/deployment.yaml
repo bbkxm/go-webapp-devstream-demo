@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: go-webapp-devstream-demo
+  labels:
+    app: go-webapp-devstream-demo
+spec:
+  replicas: {{ .Values.replicaCount }}
+  selector:
+    matchLabels:
+      app: go-webapp-devstream-demo
+  template:
+    metadata:
+      labels:
+        app: go-webapp-devstream-demo
+    spec:
+      containers:
+      - name: go-webapp-devstream-demo
+        image: "bbkxm/go-webapp-devstream-demo:{{ .Chart.AppVersion }}"
+        ports:
+        - containerPort: 8080

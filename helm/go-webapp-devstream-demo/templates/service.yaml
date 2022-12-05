@@ -1,0 +1,10 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: go-webapp-devstream-demo
+spec:
+  selector:
+    app: go-webapp-devstream-demo
+  ports:
+    - port: 80
+      targetPort: 8080
